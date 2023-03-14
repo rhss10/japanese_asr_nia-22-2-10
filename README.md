@@ -1,5 +1,5 @@
 ## General
-- A source code to fine-tune Wav2Vec2-xls-r on NIA-2022-2-10 Japanese Dataset 
+- A source code to fine-tune self-supervised learning model (SSL) on NIA-2022-2-10 Japanese Dataset for Japanese Automatic Speech Recognition (ASR)
 
 ## Commands
 ### Prepare Data
