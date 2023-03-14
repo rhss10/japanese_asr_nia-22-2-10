@@ -1,0 +1,14 @@
+tensorboard==2.9
+tensorboardX
+jiwer
+soundfile
+ffmpeg<5
+addict
+torchaudio
+librosa
+datasets
+transformers
+mecab-python3
+unidic-lite
+pykakasi
+dill<0.3.5
