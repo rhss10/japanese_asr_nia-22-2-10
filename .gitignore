@@ -1,0 +1,6 @@
+data/nia-10_long/
+data/nia-10_test/
+data/nia-10_train/
+data/nia-10_valid/
+data/nia-10_valid_small/
+models/
