@@ -4,6 +4,10 @@
 - More information regarding the **usage of the dataset** and **docker support** will be updated with the relase of dataset.
 - If you're looking at this file through Docker ver 3.0, you may want to refer to https://github.com/rhss10/japanese_asr_nia-22-2-10 for the latest codes.
 
+## License
+- SPDX-FileCopyrightText: © 2023 Hyungshin Ryu \<rhss10@snu.ac.kr\>
+- SPDX-License-Identifier: Apache-2.0
+
 ## Setup
 - The code splits the dataset into 8:1:1 train, valid, test + (files over 17 second) set for efficient GPU usage.
 - The train code utilizes the basic Trainer API by Huggingface. By default, the SSL model is set to Wav2Vec2-xls-r-300m.
