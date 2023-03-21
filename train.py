@@ -1,3 +1,8 @@
+# Author: Hyungshin Ryu
+# Contact: rhss10@snu.ac.kr
+# train on Japanese ASR
+# the code referred to https://huggingface.co/blog/fine-tune-xlsr-wav2vec2 by Patrick von Platen
+
 import argparse
 import logging
 import os
@@ -95,10 +100,6 @@ def prepare_arguments():
 
 def prepare_dataset(batch):
     array = batch["audio"]["array"]
-    if array.dtype != "float32":
-        array = np.float32(array)
-
-    # batched output is "un-batched"
     batch["input_values"] = processor(array, sampling_rate=16000).input_values[0]
     with processor.as_target_processor():
         batch["labels"] = processor(batch["ans"]).input_ids
@@ -143,7 +144,6 @@ def compute_metrics(pred):
     pred.label_ids[pred.label_ids == -100] = processor.tokenizer.pad_token_id
 
     pred_str = processor.batch_decode(pred_ids)
-    # we do not want to group tokens when computing the metrics
     label_str = processor.batch_decode(pred.label_ids, group_tokens=False)
     wer = wer_metric.compute(predictions=pred_str, references=label_str)
     cer = cer_metric.compute(predictions=pred_str, references=label_str)
@@ -206,6 +206,7 @@ if __name__ == "__main__":
     args = prepare_arguments()
     logger = logging.getLogger(__name__)
 
+    # load dataset and processor
     TRAIN_DS = "./data/nia-10_train"
     VALID_DS = "./data/nia-10_valid_small"
     VOCAB = "./vocab.json"
@@ -227,12 +228,15 @@ if __name__ == "__main__":
     )
     processor.save_pretrained(args.save_dir_path)
 
+    # convert ds to model inputs
     ds_train = ds_train.map(prepare_dataset, num_proc=15)
     ds_valid = ds_valid.map(prepare_dataset, num_proc=15)
 
+    # prepare metrics
     cer_metric = load_metric("cer")
     wer_metric = load_metric("wer")
 
+    # train and evaluate the model
     trainer = prepare_trainer(args, processor, train_ds=ds_train, test_ds=ds_valid)
     trainer.train()
     trainer.save_state()

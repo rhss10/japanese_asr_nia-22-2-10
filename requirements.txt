@@ -6,7 +6,8 @@ ffmpeg<5
 addict
 torchaudio
 librosa
-datasets
+datasets==2.8.0
+evaluate
 transformers
 mecab-python3
 unidic-lite
