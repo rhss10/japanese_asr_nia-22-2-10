@@ -20,6 +20,7 @@
 ### Prepare Data
 ```python
 # Data processing should be done beforehand on the ACTUAL data path
+# The example files (data/nia-10*.txt) will not work!
 python extract_data.py
 python create_datasets.py
 ```
