@@ -2,7 +2,7 @@
 - A source code to fine-tune self-supervised learning model (SSL) on NIA-2022-2-10 Japanese Dataset for Japanese Automatic Speech Recognition (ASR) of total 1028 hrs.
 - NIA-2022-2-10 Japanese Dataset for Japanese Automatic Speech Recognition (ASR) will soon be released within 2023.
 - More information regarding the **usage of the dataset** and **docker support** will be updated with the relase of dataset.
-- If you're looking at this file through Docker ver 3.0, you may want to refer to https://github.com/rhss10/japanese_asr_nia-22-2-10 for the latest codes.
+- If you're looking at this file through Docker ver 3.3, you may want to refer to https://github.com/rhss10/japanese_asr_nia-22-2-10 for the latest codes.
 
 ## License
 - SPDX-FileCopyrightText: © 2023 Hyungshin Ryu \<rhss10@snu.ac.kr\>
