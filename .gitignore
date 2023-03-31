@@ -4,3 +4,4 @@ data/nia-10_train/
 data/nia-10_valid/
 data/nia-10_valid_small/
 models/
+test/nia-10_infer/

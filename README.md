@@ -16,20 +16,36 @@
 - Valid WER, CER: 4.50%, 2.33%,
 - Test WER, CER: 5.12%, 2.62%
 
-## Commands
-### Prepare Data
+## For Test-only (TTA Qualification/Docker)
+### Notes
+- This section is used for
+    1. TTA Qualification
+    2. those who want to test the performance of the best model checkpoint using Docker (model checkpoint included inside)
+- With audio and json directory path provided, the test script will evaluate the WER/CER of the model checkpoint
+- The example test split list is shown in **test_final.txt** 
+
+### Command
+```bash
+cd test
+# Don't forget to change DIRECTORY PATH inside test/extract_data_test.py before executing the bash script
+sh test.sh
+# Done!
+```
+
+## For Train/Test
+### 1. Prepare Data
 ```python
 # Data processing should be done beforehand on the ACTUAL data path
 # The example files (data/nia-10*.txt) will not work!
 python extract_data.py
 python create_datasets.py
 ```
-### Train
+### 2. Train
 ```python
 # Example command for training. Refer to train.py for more supported arguments
 python train.py --exp_prefix NIA-10
 ```
-### Test
+### 3. Test
 ```python
 # Example
 python test.py

@@ -1,0 +1,6 @@
+PTM: ../models/NIA_bat16_lr0.0001_warm0.1
+TESTSET: ./nia-10_infer/
+BATCHSIZE: 32
+TEST WER: 4.477421%
+TEST CER: 2.304241%
+- Test finished.
